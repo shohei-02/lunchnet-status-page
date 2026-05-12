@@ -1,0 +1,10 @@
+# Cloudflare Pages カスタムヘッダー
+# 公式LINEのお客様向け。検索エンジンには載せない（meta robots と二重に効かせる）。
+/*
+  X-Robots-Tag: noindex, nofollow
+  Referrer-Policy: no-referrer
+  X-Content-Type-Options: nosniff
+
+# 出店状況データは毎朝の更新を取りこぼさないよう、ブラウザにキャッシュさせない
+/status.json
+  Cache-Control: no-store

@@ -1,0 +1,166 @@
+/* ランチネット 本日の出店状況ページ — お客様向け（社内システムのデザインは継承しない）
+   方向性: marketing/campaigns/2026-05-12-w001-出店状況ページ-デザイン方向性.md
+   速い・読みやすい・温かい。朝、スマホ片手に自分の拠点を5秒で見つけられること。 */
+
+:root {
+  --bg: #faf7f2;          /* 温かいオフホワイト（事務的な真っ白を避ける） */
+  --ink: #2e2a26;         /* 黒に寄せた濃いブラウングレー */
+  --ink-soft: #6f655c;
+  --line: #e7e0d6;
+  --brand: #d9543b;       /* 弁当・あたたかさのテラコッタ。少量だけ */
+  --open: #2e7d4f;        /* 出店予定 = 信号の「進め」 */
+  --open-bg: #e8f1ea;
+  --closed: #8c857c;      /* お休み = 静かなニュートラル（赤＝エラーには見せない） */
+  --closed-bg: #f0ece5;
+  --card: #fffdf9;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", "Meiryo", sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 28px 18px 40px;
+  min-height: 100vh;
+}
+
+/* ---- ヘッダー ---- */
+.masthead {
+  text-align: center;
+  padding-bottom: 18px;
+  border-bottom: 2px solid var(--brand);
+  margin-bottom: 6px;
+}
+.brand {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  color: var(--brand);
+  padding: 3px 12px;
+  border: 1.5px solid var(--brand);
+  border-radius: 999px;
+}
+.title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-top: 12px;
+  letter-spacing: 0.02em;
+}
+.datebar {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.datebar .updated { white-space: nowrap; }
+
+/* ---- 拠点リスト ---- */
+main { margin-top: 18px; }
+.loading { text-align: center; color: var(--ink-soft); padding: 40px 0; }
+
+.loc-list { list-style: none; }
+.loc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 52px;
+  padding: 8px 14px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+.loc-name {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.loc-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  padding: 5px 12px 5px 10px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.loc-row.is-open .loc-status { background: var(--open-bg); color: var(--open); }
+.loc-row.is-closed .loc-status { background: var(--closed-bg); color: var(--closed); }
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.dot-open, .is-open .dot { background: var(--open); }
+.dot-closed, .is-closed .dot { background: var(--closed); }
+
+/* ---- 凡例 ---- */
+.legend {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.legend .dot { vertical-align: middle; margin-right: 5px; }
+.legend-gap { display: inline-block; width: 18px; }
+
+/* ---- 状態メッセージ（準備中 / 全店お休み / 読み込み失敗） ---- */
+.message {
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 38px 22px;
+  margin-top: 8px;
+}
+.message-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  background: var(--closed-bg);
+}
+.message.is-rest .message-mark { background: var(--closed-bg); }
+.message.is-pending .message-mark { background: #f6ecd9; }
+.message.is-error .message-mark { background: #f6e4e0; }
+.message-head {
+  font-size: 19px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.message-body {
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+/* ---- フッター ---- */
+.footer {
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.line-note { font-size: 14px; color: var(--ink); }
+.fineprint { font-size: 12px; color: var(--ink-soft); margin-top: 6px; }
+
+/* ---- 狭い画面の微調整（375px 基準で設計） ---- */
+@media (max-width: 360px) {
+  .title { font-size: 23px; }
+  .loc-name { font-size: 17px; }
+}

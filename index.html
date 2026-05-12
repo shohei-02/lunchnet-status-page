@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="theme-color" content="#D9543B" />
+  <link rel="icon" href="data:," />
+  <title>本日の出店状況｜ランチネット</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="masthead">
+      <p class="brand">ランチネット</p>
+      <h1 class="title">本日の出店状況</h1>
+      <p class="datebar" id="datebar">読み込んでいます…</p>
+    </header>
+
+    <main id="board" aria-live="polite">
+      <p class="loading">少々お待ちください…</p>
+    </main>
+
+    <footer class="footer">
+      <p class="line-note">ご不明な点は公式LINEからお気軽にどうぞ。</p>
+      <p class="fineprint">※このページは公式LINEのお客様向けです。</p>
+    </footer>
+  </div>
+
+  <!-- 状態ごとのテンプレート（JSが複製して使う） -->
+  <template id="tpl-list">
+    <ul class="loc-list"></ul>
+    <p class="legend">
+      <span class="dot dot-open" aria-hidden="true"></span>出店予定
+      <span class="legend-gap"></span>
+      <span class="dot dot-closed" aria-hidden="true"></span>本日はお休み
+    </p>
+  </template>
+
+  <template id="tpl-loc-row">
+    <li class="loc-row">
+      <span class="loc-name"></span>
+      <span class="loc-status">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="loc-status-text"></span>
+      </span>
+    </li>
+  </template>
+
+  <template id="tpl-message">
+    <div class="message">
+      <div class="message-mark" aria-hidden="true"></div>
+      <p class="message-head"></p>
+      <p class="message-body"></p>
+    </div>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
