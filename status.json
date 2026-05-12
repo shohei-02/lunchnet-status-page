@@ -1,8 +1,144 @@
 {
-  "date": "2026-05-12",
-  "weekday": "火",
+  "date": "2026-05-13",
+  "weekday": "水",
   "business_day": true,
-  "generated_at": "2026-05-12T00:00:00+09:00",
+  "generated_at": "2026-05-13T05:45:18+09:00",
   "all_unregistered": true,
-  "locations": []
+  "locations": [
+    {
+      "no": 1,
+      "name": "新木場",
+      "status": "closed"
+    },
+    {
+      "no": 2,
+      "name": "シーサイド",
+      "status": "closed"
+    },
+    {
+      "no": 3,
+      "name": "新川",
+      "status": "closed"
+    },
+    {
+      "no": 4,
+      "name": "人形町",
+      "status": "closed"
+    },
+    {
+      "no": 5,
+      "name": "岩本町",
+      "status": "closed"
+    },
+    {
+      "no": 6,
+      "name": "KONO",
+      "status": "closed"
+    },
+    {
+      "no": 8,
+      "name": "公園",
+      "status": "closed"
+    },
+    {
+      "no": 9,
+      "name": "竹芝",
+      "status": "closed"
+    },
+    {
+      "no": 10,
+      "name": "コムチュア",
+      "status": "closed"
+    },
+    {
+      "no": 11,
+      "name": "麹町",
+      "status": "closed"
+    },
+    {
+      "no": 13,
+      "name": "御成門",
+      "status": "closed"
+    },
+    {
+      "no": 14,
+      "name": "芝郵便局",
+      "status": "closed"
+    },
+    {
+      "no": 15,
+      "name": "西新橋",
+      "status": "closed"
+    },
+    {
+      "no": 16,
+      "name": "飯田橋",
+      "status": "closed"
+    },
+    {
+      "no": 17,
+      "name": "虎ノ門",
+      "status": "closed"
+    },
+    {
+      "no": 18,
+      "name": "高輪",
+      "status": "closed"
+    },
+    {
+      "no": 19,
+      "name": "道玄坂",
+      "status": "closed"
+    },
+    {
+      "no": 20,
+      "name": "レバレジーズ24F",
+      "status": "closed"
+    },
+    {
+      "no": 21,
+      "name": "レバレジーズ25F",
+      "status": "closed"
+    },
+    {
+      "no": 22,
+      "name": "サクラステージ25F",
+      "status": "closed"
+    },
+    {
+      "no": 23,
+      "name": "サクラステージ26F",
+      "status": "closed"
+    },
+    {
+      "no": 24,
+      "name": "中里",
+      "status": "closed"
+    },
+    {
+      "no": 25,
+      "name": "広尾",
+      "status": "closed"
+    },
+    {
+      "no": 26,
+      "name": "バルペピート",
+      "status": "closed"
+    },
+    {
+      "no": 27,
+      "name": "日本大通り",
+      "status": "closed"
+    },
+    {
+      "no": 28,
+      "name": "新山下",
+      "status": "closed"
+    },
+    {
+      "no": 32,
+      "name": "配達",
+      "status": "closed"
+    }
+  ]
 }
