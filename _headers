@@ -7,8 +7,9 @@
   X-Content-Type-Options: nosniff
   # クリックジャッキング対策（iframe 内に埋め込み禁止）。X-Frame-Options も古いブラウザ向けに併設。
   X-Frame-Options: DENY
-  # 自分自身のオリジン以外からは何も読み込ませない。<a href="tel:..."> は CSP の対象外なので動く。
-  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  # 自分自身のオリジン＋Cloudflare Web Analytics（cookieless・GDPR適合の集計ビーコン）のみ許可。
+  # <a href="tel:..."> は CSP の対象外なので別途許可不要。
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' https://static.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
   # 一度 HTTPS で来た客に対しては 180 日間 HTTPS を強制（preload はしない＝後戻り可能）
   Strict-Transport-Security: max-age=15552000
   # 不要な機能はオプトアウト。geolocation は Sprint 9（現在地から近い売り場）で self に開ける予定。
