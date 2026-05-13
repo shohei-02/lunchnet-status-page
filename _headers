@@ -1,9 +1,18 @@
-# Cloudflare Pages カスタムヘッダー
+# Cloudflare Workers static assets カスタムヘッダー
 # 公式LINEのお客様向け。検索エンジンには載せない（meta robots と二重に効かせる）。
+
 /*
   X-Robots-Tag: noindex, nofollow
   Referrer-Policy: no-referrer
   X-Content-Type-Options: nosniff
+  # クリックジャッキング対策（iframe 内に埋め込み禁止）。X-Frame-Options も古いブラウザ向けに併設。
+  X-Frame-Options: DENY
+  # 自分自身のオリジン以外からは何も読み込ませない。<a href="tel:..."> は CSP の対象外なので動く。
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  # 一度 HTTPS で来た客に対しては 180 日間 HTTPS を強制（preload はしない＝後戻り可能）
+  Strict-Transport-Security: max-age=15552000
+  # 不要な機能はオプトアウト。geolocation は Sprint 9（現在地から近い売り場）で self に開ける予定。
+  Permissions-Policy: geolocation=(self), camera=(), microphone=(), payment=(), usb=(), interest-cohort=()
 
 # 出店状況データは毎朝の更新を取りこぼさないよう、ブラウザにキャッシュさせない
 /status.json
