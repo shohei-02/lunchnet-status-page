@@ -42,15 +42,12 @@ body {
   border-bottom: 2px solid var(--brand);
   margin-bottom: 6px;
 }
-.brand {
-  display: inline-block;
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.16em;
-  color: var(--brand);
-  padding: 3px 12px;
-  border: 1.5px solid var(--brand);
-  border-radius: 999px;
+.brand-logo {
+  display: block;
+  width: 100%;
+  max-width: 220px;     /* ロゴが視覚的に主役になりすぎないサイズ。375px幅で約58%占有 */
+  height: auto;
+  margin: 0 auto;
 }
 .title {
   font-size: 26px;
