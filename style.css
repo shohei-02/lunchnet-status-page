@@ -45,7 +45,7 @@ body {
 .brand-logo {
   display: block;
   width: 100%;
-  max-width: 220px;     /* ロゴが視覚的に主役になりすぎないサイズ。375px幅で約58%占有 */
+  max-width: 230px;     /* 375px幅画面で約61%占有。ロゴ画像は原寸 626×131・64色パレット圧縮で 17KB */
   height: auto;
   margin: 0 auto;
 }
