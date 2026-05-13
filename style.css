@@ -157,7 +157,14 @@ main { margin-top: 18px; }
   text-align: center;
 }
 .line-note { font-size: 14px; color: var(--ink); }
-.fineprint { font-size: 12px; color: var(--ink-soft); margin-top: 6px; }
+.line-note .tel {
+  color: var(--brand);          /* テラコッタで「押せる」を示す */
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.line-note .tel:hover,
+.line-note .tel:focus { text-decoration: underline; }
 
 /* ---- 営業終了表示（平日 13:30 以降・クライアント判定） ---- */
 .banner-closed-today {
