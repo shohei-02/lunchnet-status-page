@@ -131,7 +131,11 @@
     }
 
     var line = formatDate(data.date, data.weekday);
-    if (data.generated_at) {
+    var afterClose = isAfterCloseJst();
+    if (afterClose) {
+      // 13:30以降は全店「営業終了」に切り替わるので、最終更新時刻も 13:30 に揃える（朝の生成時刻を出し続けると「13:30に状態が変わったのに更新時刻は8:00のまま」になり違和感が出る）
+      line += "　最終更新 " + CLOSE_HHMM;
+    } else if (data.generated_at) {
       var t = new Date(data.generated_at);
       var hh = String(t.getHours()).padStart(2, "0");
       var mm = String(t.getMinutes()).padStart(2, "0");
@@ -140,7 +144,7 @@
     setDatebar(line);
 
     // 平日の 13:30 を過ぎたら全店「営業終了」表示に切り替える（クライアント判定・JST固定）。
-    if (isAfterCloseJst()) {
+    if (afterClose) {
       renderListClosedToday(data.locations || []);
     } else {
       renderList(data.locations || []);
