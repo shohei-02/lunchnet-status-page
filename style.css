@@ -12,6 +12,8 @@
   --open-bg: #e8f1ea;
   --closed: #8c857c;      /* お休み = 静かなニュートラル（赤＝エラーには見せない） */
   --closed-bg: #f0ece5;
+  --soldout: #c25a1f;     /* 完売 = バーントオレンジ。赤エラーと混同しない第3色 */
+  --soldout-bg: #fbeada;
   --card: #fffdf9;
 }
 
@@ -96,6 +98,7 @@ main { margin-top: 18px; }
 }
 .loc-row.is-open .loc-status { background: var(--open-bg); color: var(--open); }
 .loc-row.is-closed .loc-status { background: var(--closed-bg); color: var(--closed); }
+.loc-row.is-sold-out .loc-status { background: var(--soldout-bg); color: var(--soldout); }
 
 .dot {
   width: 11px;
@@ -106,6 +109,7 @@ main { margin-top: 18px; }
 }
 .dot-open, .is-open .dot { background: var(--open); }
 .dot-closed, .is-closed .dot { background: var(--closed); }
+.dot-soldout, .is-sold-out .dot { background: var(--soldout); }
 
 /* ---- 凡例 ---- */
 .legend {

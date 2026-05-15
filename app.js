@@ -53,12 +53,20 @@
     var node = tpl("tpl-list");
     var ul = node.querySelector(".loc-list");
     locations.forEach(function (loc) {
-      var isOpen = loc.status === "open";
       var row = tpl("tpl-loc-row");
       var li = row.querySelector(".loc-row");
-      li.classList.add(isOpen ? "is-open" : "is-closed");
+      var cls, label;
+      if (loc.status === "open") {
+        cls = "is-open"; label = "出店予定";
+      } else if (loc.status === "sold_out") {
+        // 拠点別QRから即時切替えされた「完売」表示。お休みと別の第3状態として目で見分けられる。
+        cls = "is-sold-out"; label = "完売";
+      } else {
+        cls = "is-closed"; label = "本日お休み";
+      }
+      li.classList.add(cls);
       row.querySelector(".loc-name").textContent = loc.name + "店";
-      row.querySelector(".loc-status-text").textContent = isOpen ? "出店予定" : "本日お休み";
+      row.querySelector(".loc-status-text").textContent = label;
       ul.appendChild(row);
     });
     replaceBoard(node);
