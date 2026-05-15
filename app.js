@@ -7,6 +7,40 @@
 
   var WEEKDAY = "日月火水木金土"; // JS の getDay() は 0=日
   var CLOSE_HHMM = "13:30";       // 平日のランチネット販売終了時刻（JST）。これ以降は全店「営業終了」表示
+  var FAV_KEY = "lunchnet_favorites_v1"; // LocalStorage キー（v1=拠点no配列）
+
+  // お気に入りは「拠点 no」配列で管理する。name は将来変わる可能性があるが no は固定。
+  function loadFavorites() {
+    try {
+      var raw = localStorage.getItem(FAV_KEY);
+      if (!raw) return [];
+      var arr = JSON.parse(raw);
+      return Array.isArray(arr) ? arr.filter(function (x) { return typeof x === "number"; }) : [];
+    } catch (e) { return []; }
+  }
+  function saveFavorites(favs) {
+    try { localStorage.setItem(FAV_KEY, JSON.stringify(favs)); } catch (e) { /* QuotaExceeded等は黙殺 */ }
+  }
+  function toggleFavorite(no) {
+    var favs = loadFavorites();
+    var idx = favs.indexOf(no);
+    if (idx >= 0) favs.splice(idx, 1);
+    else favs.push(no);
+    saveFavorites(favs);
+    return favs;
+  }
+  function partitionByFavorite(locations, favs) {
+    var favSet = new Set(favs);
+    var fav = [];
+    var rest = [];
+    locations.forEach(function (loc) {
+      (favSet.has(loc.no) ? fav : rest).push(loc);
+    });
+    // それぞれ no 順を維持（locations は build_status で no 順保証されているが念のため）
+    fav.sort(function (a, b) { return a.no - b.no; });
+    rest.sort(function (a, b) { return a.no - b.no; });
+    return { fav: fav, rest: rest };
+  }
 
   function todayLocalISO() {
     var d = new Date();
@@ -49,31 +83,80 @@
     replaceBoard(node);
   }
 
+  function buildRow(loc, isFav) {
+    var row = tpl("tpl-loc-row");
+    var li = row.querySelector(".loc-row");
+    var cls, label;
+    if (loc.status === "open") {
+      cls = "is-open"; label = "出店予定";
+    } else if (loc.status === "sold_out") {
+      // 拠点別QRから即時切替えされた「完売」表示。お休みと別の第3状態として目で見分けられる。
+      cls = "is-sold-out"; label = "完売";
+    } else {
+      cls = "is-closed"; label = "本日お休み";
+    }
+    li.classList.add(cls);
+    if (isFav) li.classList.add("is-fav");
+    li.dataset.no = String(loc.no);
+    row.querySelector(".loc-name").textContent = loc.name + "店";
+    row.querySelector(".loc-status-text").textContent = label;
+    var btn = row.querySelector(".fav-btn");
+    btn.setAttribute("aria-pressed", isFav ? "true" : "false");
+    btn.setAttribute("aria-label", (isFav ? "お気に入りから外す: " : "お気に入りに追加: ") + loc.name + "店");
+    return row;
+  }
+
   function renderList(locations) {
     var node = tpl("tpl-list");
     var ul = node.querySelector(".loc-list");
-    locations.forEach(function (loc) {
-      var row = tpl("tpl-loc-row");
-      var li = row.querySelector(".loc-row");
-      var cls, label;
-      if (loc.status === "open") {
-        cls = "is-open"; label = "出店予定";
-      } else if (loc.status === "sold_out") {
-        // 拠点別QRから即時切替えされた「完売」表示。お休みと別の第3状態として目で見分けられる。
-        cls = "is-sold-out"; label = "完売";
-      } else {
-        cls = "is-closed"; label = "本日お休み";
-      }
-      li.classList.add(cls);
-      row.querySelector(".loc-name").textContent = loc.name + "店";
-      row.querySelector(".loc-status-text").textContent = label;
-      ul.appendChild(row);
-    });
-    replaceBoard(node);
+    var legend = node.querySelector(".legend");
+
+    var groups = partitionByFavorite(locations, loadFavorites());
+    var frag = document.createDocumentFragment();
+
+    if (groups.fav.length) {
+      var favLabel = document.createElement("p");
+      favLabel.className = "fav-section-label";
+      favLabel.textContent = "お気に入り";
+      frag.appendChild(favLabel);
+      var favUl = document.createElement("ul");
+      favUl.className = "loc-list loc-list--fav";
+      groups.fav.forEach(function (loc) { favUl.appendChild(buildRow(loc, true)); });
+      frag.appendChild(favUl);
+
+      var restLabel = document.createElement("p");
+      restLabel.className = "fav-section-label";
+      restLabel.textContent = "そのほかの店舗";
+      frag.appendChild(restLabel);
+    }
+
+    groups.rest.forEach(function (loc) { ul.appendChild(buildRow(loc, false)); });
+    if (groups.fav.length) ul.classList.add("loc-list--rest");
+    frag.appendChild(ul);
+    if (legend) frag.appendChild(legend); // 凡例は最下部
+
+    var board = document.getElementById("board");
+    board.innerHTML = "";
+    board.appendChild(frag);
+  }
+
+  function buildClosedTodayRow(loc, isFav) {
+    var row = tpl("tpl-loc-row");
+    var li = row.querySelector(".loc-row");
+    li.classList.add("is-closed-today");
+    if (isFav) li.classList.add("is-fav");
+    li.dataset.no = String(loc.no);
+    row.querySelector(".loc-name").textContent = loc.name + "店";
+    row.querySelector(".loc-status-text").textContent = "営業終了";
+    var btn = row.querySelector(".fav-btn");
+    btn.setAttribute("aria-pressed", isFav ? "true" : "false");
+    btn.setAttribute("aria-label", (isFav ? "お気に入りから外す: " : "お気に入りに追加: ") + loc.name + "店");
+    return row;
   }
 
   function renderListClosedToday(locations) {
     // 13:30 以降。リストは見せるが、全店「営業終了」表示＋上に「本日終了しました」バナー。
+    // お気に入りはここでも先頭に集めて表示する（視認性のため）。
     var frag = document.createDocumentFragment();
 
     var banner = document.createElement("div");
@@ -88,18 +171,30 @@
     banner.appendChild(body);
     frag.appendChild(banner);
 
+    var groups = partitionByFavorite(locations, loadFavorites());
+
+    if (groups.fav.length) {
+      var favLabel = document.createElement("p");
+      favLabel.className = "fav-section-label";
+      favLabel.textContent = "お気に入り";
+      frag.appendChild(favLabel);
+      var favUl = document.createElement("ul");
+      favUl.className = "loc-list loc-list--fav";
+      groups.fav.forEach(function (loc) { favUl.appendChild(buildClosedTodayRow(loc, true)); });
+      frag.appendChild(favUl);
+
+      var restLabel = document.createElement("p");
+      restLabel.className = "fav-section-label";
+      restLabel.textContent = "そのほかの店舗";
+      frag.appendChild(restLabel);
+    }
+
     var node = tpl("tpl-list");
     var ul = node.querySelector(".loc-list");
     var legend = node.querySelector(".legend");
     if (legend) legend.remove(); // 全店「営業終了」なので凡例は意味がない
-    locations.forEach(function (loc) {
-      var row = tpl("tpl-loc-row");
-      var li = row.querySelector(".loc-row");
-      li.classList.add("is-closed-today");
-      row.querySelector(".loc-name").textContent = loc.name + "店";
-      row.querySelector(".loc-status-text").textContent = "営業終了";
-      ul.appendChild(row);
-    });
+    groups.rest.forEach(function (loc) { ul.appendChild(buildClosedTodayRow(loc, false)); });
+    if (groups.fav.length) ul.classList.add("loc-list--rest");
     frag.appendChild(node);
 
     replaceBoard(frag);
@@ -185,6 +280,19 @@
       show(lastData);
     }
   }, 60 * 1000);
+
+  // ♥ボタンの委譲ハンドラ。board は同じ要素で再利用されるので一度だけ登録すればよい。
+  document.getElementById("board").addEventListener("click", function (e) {
+    var btn = e.target.closest(".fav-btn");
+    if (!btn) return;
+    var row = btn.closest(".loc-row");
+    if (!row || !row.dataset.no) return;
+    var no = Number(row.dataset.no);
+    if (Number.isNaN(no)) return;
+    toggleFavorite(no);
+    // 直近の status.json データを使って再描画（ソート＆強調が更新される）。
+    if (lastData) show(lastData);
+  });
 
   // キャッシュを確実に避けて取得（毎朝の更新を取りこぼさない）
   fetch("status.json?_=" + Date.now(), { cache: "no-store" })
