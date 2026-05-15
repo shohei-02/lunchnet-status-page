@@ -153,6 +153,37 @@ main { margin-top: 18px; }
   transform: scale(1.08);
 }
 
+/* タップ時の弾みアニメ（DOM入れ替えで途中で消えるが視覚的にはOK） */
+@keyframes heart-pop {
+  0%, 100% { transform: scale(1); }
+  35% { transform: scale(1.4); }
+}
+.fav-icon.is-popping { animation: heart-pop 0.32s ease-out; }
+.fav-btn[aria-pressed="true"] .fav-icon.is-popping { animation: heart-pop 0.32s ease-out; }
+
+/* タップ後のフィードバックトースト（画面下に小さく出る） */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  transform: translate(-50%, 12px);
+  background: rgba(46, 42, 38, 0.92);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 24px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  z-index: 20;
+}
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px; height: 1px;

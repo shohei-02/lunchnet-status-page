@@ -281,6 +281,18 @@
     }
   }, 60 * 1000);
 
+  // 操作結果のフィードバック（画面下に短いメッセージを出す）。
+  function showToast(message) {
+    var toast = document.getElementById("toast");
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.remove("show");
+    void toast.offsetWidth; // CSS の遷移を初期化するための reflow
+    toast.classList.add("show");
+    if (toast._t) clearTimeout(toast._t);
+    toast._t = setTimeout(function () { toast.classList.remove("show"); }, 2400);
+  }
+
   // ♥ボタンの委譲ハンドラ。board は同じ要素で再利用されるので一度だけ登録すればよい。
   document.getElementById("board").addEventListener("click", function (e) {
     var btn = e.target.closest(".fav-btn");
@@ -289,9 +301,26 @@
     if (!row || !row.dataset.no) return;
     var no = Number(row.dataset.no);
     if (Number.isNaN(no)) return;
+
+    // 状態取得（toggle 前）
+    var wasFav = btn.getAttribute("aria-pressed") === "true";
+
+    // ハートをポンと弾ませる（古いDOM上で・180ms後の再描画で入れ替わるが、その間に視認できる）
+    var icon = btn.querySelector(".fav-icon");
+    if (icon) {
+      icon.classList.remove("is-popping");
+      void icon.offsetWidth;
+      icon.classList.add("is-popping");
+    }
+
+    // 状態切替＋トースト表示は即時。再描画は短いウェイトを挟んでアニメと共存させる。
     toggleFavorite(no);
-    // 直近の status.json データを使って再描画（ソート＆強調が更新される）。
-    if (lastData) show(lastData);
+    showToast(wasFav ? "お気に入りから外しました" : "お気に入りに登録しました");
+    setTimeout(function () {
+      if (lastData) show(lastData);
+      // 並べ替え後の状態を確認してもらうため、上部のお気に入りセクションへ自動スクロール
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 180);
   });
 
   // キャッシュを確実に避けて取得（毎朝の更新を取りこぼさない）
