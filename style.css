@@ -64,6 +64,34 @@ body {
 }
 .datebar .updated { white-space: nowrap; }
 
+/* ---- お気に入り促進ヒント（ヘッダー直下） ---- */
+.fav-hint {
+  margin: 14px auto 0;
+  text-align: center;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+.fav-hint-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.fav-hint-sub {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+.fav-hint-icon {
+  width: 16px;
+  height: 16px;
+  fill: var(--brand);
+  flex-shrink: 0;
+}
+
 /* ---- 拠点リスト ---- */
 main { margin-top: 18px; }
 .loading { text-align: center; color: var(--ink-soft); padding: 40px 0; }
@@ -115,15 +143,14 @@ main { margin-top: 18px; }
   width: 24px;
   height: 24px;
   fill: none;
-  stroke: #c4bdb3;
-  stroke-width: 2;
+  stroke: var(--brand);       /* デフォルトでテラコッタ赤の輪郭ハート */
+  stroke-width: 1.8;
   stroke-linejoin: round;
-  transition: fill 0.18s ease, stroke 0.18s ease, transform 0.18s ease;
+  transition: fill 0.18s ease, transform 0.18s ease;
 }
 .fav-btn[aria-pressed="true"] .fav-icon {
-  fill: var(--brand);
-  stroke: var(--brand);
-  transform: scale(1.05);
+  fill: var(--brand);         /* 押されたら赤塗りに */
+  transform: scale(1.08);
 }
 
 .visually-hidden {
