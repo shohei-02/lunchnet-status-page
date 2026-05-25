@@ -1,8 +1,8 @@
 {
-  "date": "2026-05-25",
-  "weekday": "月",
+  "date": "2026-05-26",
+  "weekday": "火",
   "business_day": true,
-  "generated_at": "2026-05-25T08:00:25+09:00",
+  "generated_at": "2026-05-26T08:00:19+09:00",
   "all_unregistered": false,
   "locations": [
     {
@@ -93,7 +93,7 @@
     {
       "no": 20,
       "name": "レバレジーズ24F",
-      "status": "closed"
+      "status": "open"
     },
     {
       "no": 21,
