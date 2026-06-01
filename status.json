@@ -1,8 +1,8 @@
 {
-  "date": "2026-06-01",
-  "weekday": "月",
+  "date": "2026-06-02",
+  "weekday": "火",
   "business_day": true,
-  "generated_at": "2026-06-01T08:00:18+09:00",
+  "generated_at": "2026-06-02T08:00:20+09:00",
   "all_unregistered": false,
   "locations": [
     {
@@ -28,7 +28,7 @@
     {
       "no": 5,
       "name": "岩本町",
-      "status": "closed"
+      "status": "open"
     },
     {
       "no": 6,
@@ -58,7 +58,7 @@
     {
       "no": 13,
       "name": "御成門",
-      "status": "closed"
+      "status": "open"
     },
     {
       "no": 14,
