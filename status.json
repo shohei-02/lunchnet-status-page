@@ -1,8 +1,8 @@
 {
-  "date": "2026-06-04",
-  "weekday": "木",
+  "date": "2026-06-05",
+  "weekday": "金",
   "business_day": true,
-  "generated_at": "2026-06-04T08:00:15+09:00",
+  "generated_at": "2026-06-05T08:00:20+09:00",
   "all_unregistered": false,
   "locations": [
     {
@@ -133,11 +133,6 @@
     {
       "no": 28,
       "name": "新山下",
-      "status": "open"
-    },
-    {
-      "no": 33,
-      "name": "京橋",
       "status": "open"
     }
   ]
