@@ -1,8 +1,8 @@
 {
-  "date": "2026-06-08",
-  "weekday": "月",
+  "date": "2026-06-09",
+  "weekday": "火",
   "business_day": true,
-  "generated_at": "2026-06-08T08:00:31+09:00",
+  "generated_at": "2026-06-09T08:00:26+09:00",
   "all_unregistered": false,
   "locations": [
     {
@@ -54,11 +54,6 @@
       "no": 11,
       "name": "麹町",
       "status": "open"
-    },
-    {
-      "no": 13,
-      "name": "御成門",
-      "status": "closed"
     },
     {
       "no": 14,
