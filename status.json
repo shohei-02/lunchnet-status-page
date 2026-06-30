@@ -1,8 +1,8 @@
 {
-  "date": "2026-06-30",
-  "weekday": "火",
+  "date": "2026-07-01",
+  "weekday": "水",
   "business_day": true,
-  "generated_at": "2026-06-30T08:00:17+09:00",
+  "generated_at": "2026-07-01T08:00:44+09:00",
   "all_unregistered": false,
   "locations": [
     {
@@ -18,7 +18,7 @@
     {
       "no": 3,
       "name": "晴海",
-      "status": "closed"
+      "status": "open"
     },
     {
       "no": 4,
@@ -133,7 +133,7 @@
     {
       "no": 30,
       "name": "バルペピート",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 31,
