@@ -1,8 +1,149 @@
 {
-  "date": "2026-07-05",
-  "weekday": "日",
-  "business_day": false,
-  "generated_at": "2026-07-05T08:00:17+09:00",
+  "date": "2026-07-06",
+  "weekday": "月",
+  "business_day": true,
+  "generated_at": "2026-07-06T08:00:22+09:00",
   "all_unregistered": false,
-  "locations": []
+  "locations": [
+    {
+      "no": 1,
+      "name": "新木場",
+      "status": "open"
+    },
+    {
+      "no": 2,
+      "name": "シーサイド",
+      "status": "open"
+    },
+    {
+      "no": 3,
+      "name": "晴海",
+      "status": "closed"
+    },
+    {
+      "no": 4,
+      "name": "新川",
+      "status": "open"
+    },
+    {
+      "no": 5,
+      "name": "人形町",
+      "status": "closed"
+    },
+    {
+      "no": 7,
+      "name": "岩本町",
+      "status": "open"
+    },
+    {
+      "no": 8,
+      "name": "KONO",
+      "status": "open"
+    },
+    {
+      "no": 9,
+      "name": "札ノ辻",
+      "status": "open"
+    },
+    {
+      "no": 11,
+      "name": "公園",
+      "status": "open"
+    },
+    {
+      "no": 12,
+      "name": "竹芝",
+      "status": "open"
+    },
+    {
+      "no": 13,
+      "name": "コムチュア",
+      "status": "open"
+    },
+    {
+      "no": 14,
+      "name": "麹町",
+      "status": "open"
+    },
+    {
+      "no": 17,
+      "name": "芝郵便局",
+      "status": "open"
+    },
+    {
+      "no": 18,
+      "name": "西新橋",
+      "status": "open"
+    },
+    {
+      "no": 19,
+      "name": "青山",
+      "status": "open"
+    },
+    {
+      "no": 20,
+      "name": "飯田橋",
+      "status": "open"
+    },
+    {
+      "no": 21,
+      "name": "虎ノ門",
+      "status": "open"
+    },
+    {
+      "no": 22,
+      "name": "高輪",
+      "status": "open"
+    },
+    {
+      "no": 23,
+      "name": "道玄坂",
+      "status": "open"
+    },
+    {
+      "no": 24,
+      "name": "レバレジーズ24F",
+      "status": "open"
+    },
+    {
+      "no": 25,
+      "name": "レバレジーズ25F",
+      "status": "open"
+    },
+    {
+      "no": 26,
+      "name": "サクラステージ25F",
+      "status": "open"
+    },
+    {
+      "no": 27,
+      "name": "サクラステージ26F",
+      "status": "open"
+    },
+    {
+      "no": 28,
+      "name": "中里",
+      "status": "open"
+    },
+    {
+      "no": 29,
+      "name": "広尾",
+      "status": "open"
+    },
+    {
+      "no": 30,
+      "name": "バルペピート",
+      "status": "open"
+    },
+    {
+      "no": 31,
+      "name": "日本大通り",
+      "status": "open"
+    },
+    {
+      "no": 32,
+      "name": "新山下",
+      "status": "open"
+    }
+  ]
 }
