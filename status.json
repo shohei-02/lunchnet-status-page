@@ -1,8 +1,8 @@
 {
-  "date": "2026-07-28",
-  "weekday": "火",
+  "date": "2026-07-29",
+  "weekday": "水",
   "business_day": true,
-  "generated_at": "2026-07-28T08:00:28+09:00",
+  "generated_at": "2026-07-29T08:00:43+09:00",
   "all_unregistered": false,
   "locations": [
     {
@@ -18,7 +18,7 @@
     {
       "no": 3,
       "name": "晴海",
-      "status": "closed"
+      "status": "open"
     },
     {
       "no": 4,
