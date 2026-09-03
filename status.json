@@ -1,8 +1,8 @@
 {
-  "date": "2026-09-03",
-  "weekday": "木",
+  "date": "2026-09-04",
+  "weekday": "金",
   "business_day": true,
-  "generated_at": "2026-09-03T08:00:24+09:00",
+  "generated_at": "2026-09-04T08:00:27+09:00",
   "all_unregistered": false,
   "locations": [
     {
@@ -28,7 +28,7 @@
     {
       "no": 7,
       "name": "岩本町",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 8,
