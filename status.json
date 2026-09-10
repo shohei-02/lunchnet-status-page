@@ -1,8 +1,8 @@
 {
-  "date": "2026-09-10",
-  "weekday": "木",
+  "date": "2026-09-11",
+  "weekday": "金",
   "business_day": true,
-  "generated_at": "2026-09-10T08:00:19+09:00",
+  "generated_at": "2026-09-11T08:00:31+09:00",
   "all_unregistered": false,
   "locations": [
     {
@@ -98,7 +98,7 @@
     {
       "no": 24,
       "name": "レバレジーズ24F",
-      "status": "closed"
+      "status": "open"
     },
     {
       "no": 25,
@@ -133,7 +133,7 @@
     {
       "no": 31,
       "name": "日本大通り",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 32,
