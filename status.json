@@ -1,8 +1,8 @@
 {
-  "date": "2026-09-14",
-  "weekday": "月",
+  "date": "2026-09-15",
+  "weekday": "火",
   "business_day": true,
-  "generated_at": "2026-09-14T08:00:21+09:00",
+  "generated_at": "2026-09-15T08:00:25+09:00",
   "all_unregistered": false,
   "locations": [
     {
@@ -98,7 +98,7 @@
     {
       "no": 24,
       "name": "レバレジーズ24F",
-      "status": "closed"
+      "status": "open"
     },
     {
       "no": 25,
@@ -128,7 +128,7 @@
     {
       "no": 30,
       "name": "バルペピート",
-      "status": "closed"
+      "status": "open"
     },
     {
       "no": 31,
