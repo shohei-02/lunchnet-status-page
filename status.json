@@ -1,19 +1,19 @@
 {
-  "date": "2026-09-24",
-  "weekday": "木",
+  "date": "2026-09-25",
+  "weekday": "金",
   "business_day": true,
-  "generated_at": "2026-09-24T08:00:27+09:00",
-  "all_unregistered": false,
+  "generated_at": "2026-09-25T08:00:20+09:00",
+  "all_unregistered": true,
   "locations": [
     {
       "no": 1,
       "name": "新木場",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 2,
       "name": "シーサイド",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 3,
@@ -23,77 +23,77 @@
     {
       "no": 4,
       "name": "新川",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 7,
       "name": "岩本町",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 8,
       "name": "KONO",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 9,
       "name": "札ノ辻",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 11,
       "name": "公園",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 12,
       "name": "竹芝",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 13,
       "name": "コムチュア",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 14,
       "name": "麹町",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 17,
       "name": "芝郵便局",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 18,
       "name": "西新橋",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 19,
       "name": "青山",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 20,
       "name": "飯田橋",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 21,
       "name": "虎ノ門",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 22,
       "name": "高輪",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 23,
       "name": "道玄坂",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 24,
@@ -103,27 +103,27 @@
     {
       "no": 25,
       "name": "レバレジーズ25F",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 26,
       "name": "サクラステージ25F",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 27,
       "name": "サクラステージ26F",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 28,
       "name": "中里",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 29,
       "name": "広尾",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 30,
@@ -133,12 +133,12 @@
     {
       "no": 31,
       "name": "日本大通り",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 32,
       "name": "新山下",
-      "status": "open"
+      "status": "closed"
     }
   ]
 }
