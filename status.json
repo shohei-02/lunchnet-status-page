@@ -1,8 +1,8 @@
 {
-  "date": "2026-10-05",
-  "weekday": "月",
+  "date": "2026-10-06",
+  "weekday": "火",
   "business_day": true,
-  "generated_at": "2026-10-05T08:00:15+09:00",
+  "generated_at": "2026-10-06T07:07:29+09:00",
   "all_unregistered": false,
   "locations": [
     {
@@ -28,7 +28,7 @@
     {
       "no": 7,
       "name": "岩本町",
-      "status": "closed"
+      "status": "open"
     },
     {
       "no": 8,
@@ -73,7 +73,7 @@
     {
       "no": 19,
       "name": "青山",
-      "status": "closed"
+      "status": "open"
     },
     {
       "no": 20,
@@ -103,7 +103,7 @@
     {
       "no": 25,
       "name": "レバレジーズ24F",
-      "status": "closed"
+      "status": "open"
     },
     {
       "no": 26,
