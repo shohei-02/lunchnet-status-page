@@ -1,8 +1,8 @@
 {
-  "date": "2026-10-26",
-  "weekday": "月",
+  "date": "2026-10-27",
+  "weekday": "火",
   "business_day": true,
-  "generated_at": "2026-10-26T08:00:21+09:00",
+  "generated_at": "2026-10-27T06:57:31+09:00",
   "all_unregistered": false,
   "locations": [
     {
@@ -83,7 +83,7 @@
     {
       "no": 21,
       "name": "四番町",
-      "status": "closed"
+      "status": "open"
     },
     {
       "no": 22,
@@ -103,7 +103,7 @@
     {
       "no": 25,
       "name": "レバレジーズ24F",
-      "status": "closed"
+      "status": "open"
     },
     {
       "no": 26,
@@ -133,7 +133,7 @@
     {
       "no": 31,
       "name": "バルペピート",
-      "status": "closed"
+      "status": "open"
     },
     {
       "no": 32,
