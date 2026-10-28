@@ -1,8 +1,8 @@
 {
-  "date": "2026-10-28",
-  "weekday": "水",
+  "date": "2026-10-29",
+  "weekday": "木",
   "business_day": true,
-  "generated_at": "2026-10-28T08:00:16+09:00",
+  "generated_at": "2026-10-29T07:03:58+09:00",
   "all_unregistered": false,
   "locations": [
     {
@@ -18,7 +18,7 @@
     {
       "no": 3,
       "name": "晴海",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 4,
@@ -103,7 +103,7 @@
     {
       "no": 25,
       "name": "レバレジーズ24F",
-      "status": "closed"
+      "status": "open"
     },
     {
       "no": 26,
