@@ -1,8 +1,8 @@
 {
-  "date": "2026-11-05",
-  "weekday": "木",
+  "date": "2026-11-06",
+  "weekday": "金",
   "business_day": true,
-  "generated_at": "2026-11-05T08:00:36+09:00",
+  "generated_at": "2026-11-06T07:06:14+09:00",
   "all_unregistered": false,
   "locations": [
     {
@@ -17,82 +17,77 @@
     },
     {
       "no": 3,
-      "name": "晴海",
-      "status": "closed"
-    },
-    {
-      "no": 4,
       "name": "新川",
       "status": "open"
     },
     {
-      "no": 7,
+      "no": 6,
       "name": "岩本町",
       "status": "open"
     },
     {
-      "no": 8,
+      "no": 7,
       "name": "KONO",
       "status": "open"
     },
     {
-      "no": 9,
+      "no": 8,
       "name": "札ノ辻",
       "status": "open"
     },
     {
-      "no": 11,
-      "name": "公園",
-      "status": "open"
-    },
-    {
-      "no": 12,
-      "name": "竹芝",
-      "status": "open"
-    },
-    {
-      "no": 13,
-      "name": "コムチュア",
-      "status": "open"
-    },
-    {
-      "no": 14,
+      "no": 10,
       "name": "麹町",
       "status": "open"
     },
     {
-      "no": 17,
+      "no": 12,
+      "name": "公園",
+      "status": "open"
+    },
+    {
+      "no": 13,
+      "name": "竹芝",
+      "status": "open"
+    },
+    {
+      "no": 14,
+      "name": "コムチュア",
+      "status": "open"
+    },
+    {
+      "no": 15,
+      "name": "青山",
+      "status": "open"
+    },
+    {
+      "no": 16,
       "name": "芝郵便局",
       "status": "open"
     },
     {
-      "no": 18,
+      "no": 17,
       "name": "西新橋",
       "status": "open"
     },
     {
       "no": 19,
-      "name": "青山",
-      "status": "open"
-    },
-    {
-      "no": 20,
       "name": "飯田橋",
       "status": "open"
     },
     {
-      "no": 21,
+      "no": 20,
       "name": "四番町",
       "status": "open"
     },
     {
       "no": 22,
-      "name": "虎ノ門",
+      "name": "高輪",
       "status": "open"
     },
     {
       "no": 23,
-      "name": "高輪",
+      "name": "虎ノ門",
       "status": "open"
     },
     {
@@ -103,7 +98,7 @@
     {
       "no": 25,
       "name": "レバレジーズ24F",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 26,
@@ -144,6 +139,11 @@
       "no": 33,
       "name": "新山下",
       "status": "open"
+    },
+    {
+      "no": 34,
+      "name": "晴海",
+      "status": "closed"
     }
   ]
 }
