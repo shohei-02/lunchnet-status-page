@@ -1,8 +1,8 @@
 {
-  "date": "2026-11-10",
-  "weekday": "火",
+  "date": "2026-11-11",
+  "weekday": "水",
   "business_day": true,
-  "generated_at": "2026-11-10T08:00:28+09:00",
+  "generated_at": "2026-11-11T07:00:25+09:00",
   "all_unregistered": false,
   "locations": [
     {
@@ -58,7 +58,7 @@
     {
       "no": 15,
       "name": "青山",
-      "status": "closed"
+      "status": "open"
     },
     {
       "no": 16,
@@ -98,7 +98,7 @@
     {
       "no": 25,
       "name": "レバレジーズ24F",
-      "status": "closed"
+      "status": "open"
     },
     {
       "no": 26,
@@ -143,7 +143,7 @@
     {
       "no": 34,
       "name": "晴海",
-      "status": "closed"
+      "status": "open"
     }
   ]
 }
