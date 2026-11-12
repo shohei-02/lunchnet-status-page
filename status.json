@@ -1,8 +1,8 @@
 {
-  "date": "2026-11-12",
-  "weekday": "木",
+  "date": "2026-11-13",
+  "weekday": "金",
   "business_day": true,
-  "generated_at": "2026-11-12T08:00:25+09:00",
+  "generated_at": "2026-11-13T07:02:04+09:00",
   "all_unregistered": false,
   "locations": [
     {
@@ -133,7 +133,7 @@
     {
       "no": 32,
       "name": "バルペピート",
-      "status": "open"
+      "status": "closed"
     },
     {
       "no": 33,
