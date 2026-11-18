@@ -36,9 +36,10 @@
     locations.forEach(function (loc) {
       (favSet.has(loc.no) ? fav : rest).push(loc);
     });
-    // それぞれ no 順を維持（locations は build_status で no 順保証されているが念のため）
-    fav.sort(function (a, b) { return a.no - b.no; });
-    rest.sort(function (a, b) { return a.no - b.no; });
+    // 並びは管理画面の［出店状況］で決めた order 順（古い status.json は order が無いので no 順）
+    function rank(x) { return typeof x.order === "number" ? x.order : x.no; }
+    fav.sort(function (a, b) { return rank(a) - rank(b); });
+    rest.sort(function (a, b) { return rank(a) - rank(b); });
     return { fav: fav, rest: rest };
   }
 
